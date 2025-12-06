@@ -28,7 +28,23 @@ nav{
     margin-left: 14px;
     margin-top: 30px;
 }
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+@media(max-width: 700px){
+    .menu-icon {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 40px;
+    }
+}
 .nav-option{
+    /* display: flex;
+    gap: 15px; */
     flex: 1;
     text-align: right;
     margin-top: 30px;
@@ -75,15 +91,30 @@ nav{
     font-size: 50px;
 }
 .text-head p{
-    font-size: 15px;
+    font-size: 18px;
     color: white;
     margin: 10px 0px 30px;
+}
+@media(max-width: 1000px){
+    .text-head h1 { font-size: 35px; }
+    .text-head p { font-size: 16px; }
+}
+
+@media(max-width: 700px){
+    .text-head h1 { font-size: 25px; }
+    .text-head p { font-size: 14px; }
+    .text-head { width: 90%; left: 50%; transform: translateX(-50%); }
+}
+.input-box {
+    display: flex;
+    flex-direction: column;
 }
 .search{
     margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 10px;
+    position: relative;
 }
 .search input {
     padding: 12px 18px;
@@ -92,7 +123,19 @@ nav{
     border: none;
     font-size: 16px;
 }
-.search button{
+#suggestions {
+    padding-left: 0;
+    margin-top: 3px;
+}
+#suggestions li {
+    list-style: none;
+    background: transparent;   
+    border: none;              
+    padding: 4px 0;            
+    margin: 0;                
+    font-size: 18px; 
+}
+#ser-box {
     padding: 12px 24px;
     border-radius: 30px;
     border: none;
@@ -101,22 +144,28 @@ nav{
     font-size: 16px;
 }
 
-@media(max-width: 700px) {
-    .text-head h1{
-    font-size: 20px;
-    }
-    .nav-option a{
-        display: block;
-    }
-    .nav-option{
-        position: absolute;
+@media (max-width: 700px){
+    .nav-option {
+        flex-direction: column;
+        position: fixed;
         background: #f44336;
         height: 100vh;
-        width: 150px;
+        width: 200px;
         top: 0;
-        right: 0;
-        text-align: left;
-        z-index: 2;
+        right: -200px; 
+        transition: 0.3s;
+        padding-top: 60px;
+        z-index: 999;
+    }
+
+    .nav-option.show {
+        right: 0; 
+    }
+
+    .nav-option a {
+        color: white;
+        font-size: 18px;
+        padding: 15px 20px;
     }
 }
 .gap{
@@ -131,6 +180,7 @@ nav{
   justify-content: center;
   gap: 30px;
   padding-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .propimage{
@@ -194,7 +244,17 @@ nav{
     justify-content: center;
     gap: 30px;
     padding-bottom: 10px;
+    flex-wrap: wrap;
 }
+@media (max-width: 700px){
+    .propimage, .flat-img {
+        width: 90%; 
+        margin: 0 auto;
+}}
+@media (max-width: 1000px){
+    .propimage, .flat-img {
+        width: 45%; 
+    }}
 .flat-img{
     width: 400px;
     border-radius: 12px;
@@ -222,6 +282,8 @@ nav{
     margin-top: 40px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .last a{
     display: block;
@@ -254,6 +316,15 @@ nav{
     justify-content: flex-end;
     padding: 50px;
     padding-bottom: 50px;
+    align-items: center;
+    text-align: center;
+}
+@media(max-width: 700px){
+    .last1, .last2 {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
 }
 .social-row img{
     height: 20px;
